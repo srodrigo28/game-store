@@ -11,8 +11,7 @@ export interface ProdutoItemProps{
 export default function ProdutoItem(props : ProdutoItemProps){
     const { produto } = props
     return(
-        <Link
-            className="flex flex-col bg-zinc-900 border-2 mt-10 
+        <Link className="flex flex-col bg-zinc-900 border-2 mt-10 
                 border-white/10 rounded-lg relative max-w-[350px]
             " 
             href={`/produto/${produto.id}`}>
@@ -24,7 +23,7 @@ export default function ProdutoItem(props : ProdutoItemProps){
                     className="object-contain"
                 />
             </div>
-            <div className="flex-1 flex gap-3 flex-col p-5 border-t-4 border-white/10">
+            <div className="flex-1 flex gap-3 flex-col p-10 md:p-5 border-t-4 border-white/10">
                 <span className="text-lg font-semibold">{produto.nome}</span>
                 <span className="text-sm border-b border-dashed self-start">
                     {produto.especificacoes.destaque}

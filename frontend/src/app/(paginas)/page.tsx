@@ -7,7 +7,7 @@ import useProdutos from "@/data/hooks/useProdutos";
 export default function Home() {
   const { produtos } = useProdutos()
   return (
-            <div className="grid grid-cols-4 gap-5">
+            <div className="grid md:grid-cols-4 gap-5 ">
               {produtos.map( produto => (
                 <ProdutoItem  key={produto.id} produto={produto} />
               ))

@@ -1,18 +1,17 @@
 'use client'
 
+import { Produto } from "@/core"
+import { useEffect, useState } from "react"
 import useProdutos from "@/data/hooks/useProdutos"
 
 export default function PaginaProduto(props: any){
-    const { produtos } = useProdutos()
+    const { obterProdutoPorId } = useProdutos()
+    const [produto, setProduto] = useState<Produto | null>(null)
 
-    const id = +props.params.id
-    const produto = produtos.find((p) => p.id === id)
+    useEffect(() => {
+        obterProdutoPorId(+props.params.id).then(setProduto)
+    }, [props.params.id, obterProdutoPorId])
+
     return produto ? 
-        <div>
-            {produto?.nome} 
-        </div> 
-        : 
-        <div>
-            <h1>Produto não encontrado</h1>
-        </div>
+        <div> {produto?.nome} - <img src={produto?.imagem} alt="" /> </div> : <h1>Produto não encontrado</h1>
 }

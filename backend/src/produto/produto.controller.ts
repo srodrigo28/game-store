@@ -12,6 +12,13 @@ export class ProdutoController {
     return produtos
   }
 
+  @Get(':id')
+  async obterProdutoPorId(@Param('id') id: string): Promise<Produto | string>{
+    // return "Deu certo: " + id;
+    const produto= produtos.find((produto) => produto.id === +id );
+    return produto ? produto : 'Produto não encontrado'
+  } 
+  
   /** 
     @Post()
     create(@Body() createProdutoDto: CreateProdutoDto) {

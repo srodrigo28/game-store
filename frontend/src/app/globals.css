@@ -22,6 +22,6 @@ body {
 
 @layer components{
   .container{
-    @apply max-w-7xl mx-auto px-10;
+    @apply max-w-7xl mx-auto px-10 md:flex-row flex flex-col;
   }
 }

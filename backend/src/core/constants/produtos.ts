@@ -7,7 +7,7 @@ const produtos: Produto[] = [
         descricao: 'Core i7  notebook Gamer Geração 12',
         marca: 'Acer',
         modelo: 'AN5145-54-58CL',
-        imagem: 'https://http2.mlstatic.com/D_NQ_NP_2X_924427-MLU70783024662_082023-F.webp',
+        imagem: 'https://lojaibyte.vteximg.com.br/arquivos/ids/405904/notebook-nvidea.png?v=638079457070630000',
         nota: 4.5,
         videoReview: '...',
         tags: ['Baixou'],
