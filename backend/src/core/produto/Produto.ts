@@ -5,7 +5,6 @@ export default interface Produto extends Precificavel{
     id: number
     nome: string
     descricao: string
-    preco: number
     marca: string
     modelo: string
     imagem: string
