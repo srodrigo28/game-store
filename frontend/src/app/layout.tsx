@@ -28,7 +28,6 @@ export default function RootLayout({
           ${geistSans.variable} 
           ${geistMono.variable} 
           antialiased bg-black text-white
-          container
         `}>
         {children}
       </body>
