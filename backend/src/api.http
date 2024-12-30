@@ -1,4 +1,42 @@
 GET http://localhost:4000/produto
 
 ###
-GET http://localhost:4000/produto/1  
+GET http://localhost:4000/produto/3
+
+###
+DELETE  http://localhost:4000/produto/3
+
+###
+GET http://localhost:4000/produto/resumo
+
+###
+POST  http://localhost:4000/produto
+Content-Type: application/json
+
+{
+  "id": 3,
+  "nome": " ALTERADO ... Notebook Gamer Acer Nitro 5",
+  "descricao": "O Acer Nitro 5 é um notebook gamer poderoso, ideal para jogos pesados e multitarefas.",
+  "marca": "Acer",
+  "modelo": "AN515-54-58CL",
+  "imagem": "https://firebasestorage.googleapis.com/v0/b/formacao-dev.appspot.com/o/lancamentos%2Fgam3rstore%2Facer-nitro-5.png?alt=media&token=094ba6a8-1a4d-414a-b32c-c176bfeaca8e",
+  "nota": 4.5,
+  "videoReview": "https://www.youtube.com/embed/8NQFr9De3lU?si=s_lN2KTQresD-36Y",
+  "tags": [
+    "Baixou"
+  ],
+  "precoBase": 6499.99,
+  "precoPromocional": 5999.99,
+  "menorPreco": 4850.9,
+  "maiorPreco": 9800.8,
+  "precoMedio": 6503.7,
+  "especificacoes": {
+    "Peso": "2.5 Kg",
+    "Tela": "15.6 polegadas Full HD",
+    "Memória": "16GB DDR4",
+    "destaque": "NVIDIA GeForce RTX 2060",
+    "Processador": "Intel Core i5-9300H",
+    "Armazenamento": "512GB SSD",
+    "Placa de Vídeo": "NVIDIA GeForce RTX 2060"
+  }
+}

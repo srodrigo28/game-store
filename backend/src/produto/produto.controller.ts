@@ -1,23 +1,34 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ProdutoService } from './produto.service';
-import { CreateProdutoDto } from './dto/create-produto.dto';
-import { UpdateProdutoDto } from './dto/update-produto.dto';
-import { Produto, produtos } from './../core'
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Produto } from './../core'
+import { ProdutoPrima } from './produto.prima';
 @Controller('produto')
 export class ProdutoController {
-  constructor(private readonly produtoService: ProdutoService) {}
+  constructor(private readonly repo: ProdutoPrima) {}
+
+  @Post()
+  async SalvarEditar(@Body() produto: Produto): Promise<void>{
+    return await this.repo.salvarOrAlterar(produto);
+  }
 
   @Get()
-  obterProdutos(): Produto[]{
-    return produtos
+  async obterProdutos(): Promise<Produto[]>{
+    return this.repo.obter();
+  }
+
+  @Get("/resumo")
+  async obterResumoProdutos(): Promise<Produto[]>{
+    return this.repo.obterResumo();
   }
 
   @Get(':id')
   async obterProdutoPorId(@Param('id') id: string): Promise<Produto | string>{
-    // return "Deu certo: " + id;
-    const produto= produtos.find((produto) => produto.id === +id );
-    return produto ? produto : 'Produto não encontrado'
-  } 
+    return this.repo.obterPorId(Number(id));
+  }
+  
+  @Delete(':id')
+  async ExcluirProdutoPorId(@Param('id') id: string): Promise<void>{
+    return this.repo.excluir(Number(id));
+  }
   
   /** 
     @Post()
